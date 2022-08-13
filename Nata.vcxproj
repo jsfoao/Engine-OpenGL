@@ -55,15 +55,15 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;NT_PLATFORM_WINDOWS;NT_BUILD_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;_DEBUG;_CONSOLE;NT_PLATFORM_WINDOWS;NT_BUILD_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Dev\Nata\include\GLFW;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Dev\Nata\include\GLFW;C:\Dev\Nata\include\GL;C:\Dev\Nata\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Dev\Nata\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;Gdi32.lib;User32.lib;Shell32.lib</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;Gdi32.lib;User32.lib;Shell32.lib;glew32s.lib;</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>

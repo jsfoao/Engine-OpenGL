@@ -1,0 +1,21 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(495,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(496,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  C:\Dev\Nata\bin\glfw3.dll
+  C:\Dev\Nata\bin\libjpeg-9.dll
+  C:\Dev\Nata\bin\libpng16-16.dll
+  C:\Dev\Nata\bin\libtiff-5.dll
+  C:\Dev\Nata\bin\libwebp-7.dll
+  C:\Dev\Nata\bin\Nata.dll
+  C:\Dev\Nata\bin\Nata.exp
+  C:\Dev\Nata\bin\Nata.lib
+  C:\Dev\Nata\bin\Nata.pdb
+  C:\Dev\Nata\bin\SDL2.dll
+  C:\Dev\Nata\bin\SDL2_image.dll
+  C:\Dev\Nata\bin\SDL2_ttf.dll
+  C:\Dev\Nata\bin\zlib1.dll
+  13 File(s) copied
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(495,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(496,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  game.cpp
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Game.vcxproj -> C:\Dev\Nata\exe\Debug-x64\Game\Game.exe

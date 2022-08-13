@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "263dabbc-d25b-4a6b-8e65-07c4ede3ee61": {
+      "ProjectGuid": "263dabbc-d25b-4a6b-8e65-07c4ede3ee61",
+      "DisplayName": "Nata",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "695c5d5f-c461-46ad-854c-a8819b1afef2": {
+      "ProjectGuid": "695c5d5f-c461-46ad-854c-a8819b1afef2",
+      "DisplayName": "Game",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

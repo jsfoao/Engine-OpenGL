@@ -9,6 +9,6 @@ namespace Nata
 		Application();
 		virtual ~Application();
 
-		virtual int run();
+		virtual int Run();
 	};
 }

@@ -10,7 +10,7 @@ namespace Nata
 	{
 	}
 
-	int Application::run()
+	int Application::Run()
 	{
 		return 0;
 	}

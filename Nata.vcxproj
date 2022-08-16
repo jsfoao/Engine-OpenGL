@@ -93,6 +93,7 @@
   <ItemGroup>
     <ClCompile Include="src\core\application.cpp" />
     <ClCompile Include="src\core\engine.cpp" />
+    <ClCompile Include="src\core\window.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +107,7 @@
     <ClInclude Include="src\core\core.h" />
     <ClInclude Include="src\core\engine.h" />
     <ClInclude Include="src\core\entry_point.h" />
+    <ClInclude Include="src\core\window.h" />
     <ClInclude Include="src\nata.h" />
   </ItemGroup>
   <ItemGroup>

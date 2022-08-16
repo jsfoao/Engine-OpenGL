@@ -81,10 +81,14 @@ public:
             // Print GL Version
             std::cout << glGetString(GL_VERSION) << std::endl;
 
-            float positions[6] =
+            float positions[] =
             {
+                 0.f, 0.f,
+                 1.f, 1.f,
+                -1.f, 1.f,
+
+                 0.f, 0.f,
                 -1.f, -1.f,
-                 0.f, 1.f,
                  1.f, -1.f
             };
 
@@ -95,7 +99,7 @@ public:
             glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
             glEnableVertexAttribArray(0);
 
-            glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), positions, GL_STATIC_DRAW);
+            glBufferData(GL_ARRAY_BUFFER, sizeof(positions), positions, GL_STATIC_DRAW);
 
             std::string vertexShader = 
                 "#version 330 core\n"
@@ -126,7 +130,7 @@ public:
                 /* Render here */
                 glClear(GL_COLOR_BUFFER_BIT);
 
-                glDrawArrays(GL_TRIANGLES, 0, 3);
+                glDrawArrays(GL_TRIANGLES, 0, 6);
 
                 /* Swap front and back buffers */
                 glfwSwapBuffers(window);

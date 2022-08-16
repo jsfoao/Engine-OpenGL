@@ -2,8 +2,8 @@
 // for use in applications
 
 #include "core/application.h"
-#include "glew.h"
-#include "glfw3.h"
+#include "GL/glew.h"
+#include "GLFW/glfw3.h"
 #include <iostream>
 
 // entry point

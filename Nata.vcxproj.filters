@@ -41,5 +41,46 @@
     <ClInclude Include="src\core\entry_point.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\GL\eglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GL\glew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GL\glxew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GL\wglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLFW\glfw3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLFW\glfw3native.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\glew32.lib" />
+    <Library Include="lib\glew32s.lib" />
+    <Library Include="lib\glfw3.lib" />
+    <Library Include="lib\glfw3_mt.lib" />
+    <Library Include="lib\glfw3dll.lib" />
+    <Library Include="lib\SDL2.lib" />
+    <Library Include="lib\SDL2_image.lib" />
+    <Library Include="lib\SDL2_ttf.lib" />
+    <Library Include="lib\SDL2main.lib" />
+    <Library Include="lib\SDL2test.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\glfw3.dll" />
+    <None Include="bin\libjpeg-9.dll" />
+    <None Include="bin\libpng16-16.dll" />
+    <None Include="bin\libtiff-5.dll" />
+    <None Include="bin\libwebp-7.dll" />
+    <None Include="bin\SDL2.dll" />
+    <None Include="bin\SDL2_image.dll" />
+    <None Include="bin\SDL2_ttf.dll" />
+    <None Include="bin\zlib1.dll" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 #include "window.h"
 
+
 namespace Nata
 {
 	Window::Window(const char* title, int width, int height)
@@ -21,7 +22,7 @@ namespace Nata
 	{
 		if (!glfwInit())
 		{
-			std::cout << "Failed to initialize GLFW!" << std::endl;
+			LOG("Failed to initialize GLFW!")
 			return false;
 		}
 
@@ -29,21 +30,37 @@ namespace Nata
 		if (!m_Window)
 		{
 			glfwTerminate();
-			std::cout << "Failed to created window!\n" << std::endl;
+			LOG("Failed to created window!");
 			return false;
 		}
 		glfwMakeContextCurrent(m_Window);
+
+		if (glfwInit() != GLEW_OK)
+		{
+			LOG("Could not initialize GLEW!");
+		}
 		return true;
 
+	}
+
+	void Window::Clear() const
+	{
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
 
 	bool Window::Closed() const
 	{
 		return glfwWindowShouldClose(m_Window);
 	}
-	void Window::Update() const
+	void Window::Update()
 	{
 		glfwPollEvents();
+
+		// changed window size
+		glfwGetFramebufferSize(m_Window, &m_Width, &m_Height);
+
+		// stretch contents depending on window size
+		glViewport(0, 0, m_Width, m_Height);
 		glfwSwapBuffers(m_Window);
 	}
 }

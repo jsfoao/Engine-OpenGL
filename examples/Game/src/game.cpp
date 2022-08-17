@@ -1,4 +1,5 @@
 #include "nata.h"
+using namespace Nata;
 
 static unsigned int CompileShader(unsigned int type, const std::string& source)
 {
@@ -56,96 +57,27 @@ public:
 
 	int Run()
 	{
-        while (true)
+        Window window("Nata Engine", 600,600);
+        
+        while (!window.Closed())
         {
-            GLFWwindow* window;
+            LOGVEC(window.GetWidth(), window.GetHeight());
+            window.Clear();
 
-            /* Initialize the library */
-            if (!glfwInit())
-                return -1;
+            glBegin(GL_QUADS);
+            glVertex2f(-0.5f, -0.5f);
+            glVertex2f(-0.5f, 0.5f);
+            glVertex2f(0.5f, 0.5f);
+            glVertex2f(0.5f, -0.5f);
+            glEnd();
 
-            /* Create a windowed mode window and its OpenGL context */
-            window = glfwCreateWindow(640, 480, "Nata Engine", NULL, NULL);
-            if (!window)
-            {
-                glfwTerminate();
-                return -1;
-            }
-
-            /* Make the window's context current */
-            glfwMakeContextCurrent(window);
-
-            if (glewInit() != GLEW_OK)
-                printf("GLEW not OK\n");
-
-            // Print GL Version
-            std::cout << glGetString(GL_VERSION) << std::endl;
-
-            float positions[] =
-            {
-                 0.f, 0.f,
-                 1.f, 1.f,
-                -1.f, 1.f,
-
-                 0.f, 0.f,
-                -1.f, -1.f,
-                 1.f, -1.f
-            };
-
-            unsigned int buffer;
-            glGenBuffers(1, &buffer);
-            glBindBuffer(GL_ARRAY_BUFFER, buffer);
-
-            glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
-            glEnableVertexAttribArray(0);
-
-            glBufferData(GL_ARRAY_BUFFER, sizeof(positions), positions, GL_STATIC_DRAW);
-
-            std::string vertexShader = 
-                "#version 330 core\n"
-                "\n"
-                "layout(location = 0) in vec4 position;\n"
-                "\n"
-                "void main()\n"
-                "{\n"
-                "   gl_Position = position\n"
-                "}\n";
-
-            std::string fragmentShader =
-                "#version 330 core\n"
-                "\n"
-                "layout(location = 0) out vec4 color;\n"
-                "\n"
-                "void main()\n"
-                "{\n"
-                "   color = vec4(1.0, 0.0, 0.0, 1.0);\n"
-                "}\n";
-
-            unsigned int shader = CreateShader(vertexShader, fragmentShader);
-            glUseProgram(shader);
-
-            /* Loop until the user closes the window */
-            while (!glfwWindowShouldClose(window))
-            {
-                /* Render here */
-                glClear(GL_COLOR_BUFFER_BIT);
-
-                glDrawArrays(GL_TRIANGLES, 0, 6);
-
-                /* Swap front and back buffers */
-                glfwSwapBuffers(window);
-
-                /* Poll for and process events */
-                glfwPollEvents();
-            }
-
-            glfwTerminate();
-            return 0;
+            window.Update();
         }
+        return 0;
 	}
 };
 
-Nata::Application* CreateApplication()
+Application* CreateApplication()
 {
 	printf("Created application\n");
 	return new Game();

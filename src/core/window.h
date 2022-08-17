@@ -1,10 +1,12 @@
 #pragma once
 #include <iostream>
+#include "core.h"
+#include "GL/glew.h"
 #include "GLFW/glfw3.h"
 
 namespace Nata
 {
-	class Window
+	class NATA_API Window
 	{
 	private:
 		const char* m_Title;
@@ -14,9 +16,13 @@ namespace Nata
 	public:
 		Window(const char* name, int width, int height);
 		~Window();
-		void Update() const;
+		void Update();
+		bool Closed() const;
+		void Clear() const;
+
+		inline int GetWidth() const { return m_Width;  }
+		inline int GetHeight() const { return m_Height;  }
 	private:
 		bool Init();
-		bool Closed() const;
 	};
 }

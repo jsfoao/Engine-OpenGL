@@ -93,6 +93,7 @@
   <ItemGroup>
     <ClCompile Include="src\core\application.cpp" />
     <ClCompile Include="src\core\engine.cpp" />
+    <ClCompile Include="src\core\input.cpp" />
     <ClCompile Include="src\core\window.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
@@ -107,6 +108,8 @@
     <ClInclude Include="src\core\core.h" />
     <ClInclude Include="src\core\engine.h" />
     <ClInclude Include="src\core\entry_point.h" />
+    <ClInclude Include="src\core\input.h" />
+    <ClInclude Include="src\core\key.h" />
     <ClInclude Include="src\core\window.h" />
     <ClInclude Include="src\nata.h" />
   </ItemGroup>

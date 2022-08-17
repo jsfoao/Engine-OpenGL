@@ -35,12 +35,15 @@ namespace Nata
 		}
 		glfwMakeContextCurrent(m_Window);
 
-		if (glfwInit() != GLEW_OK)
+		if (glewInit() != GLEW_OK)
 		{
 			LOG("Could not initialize GLEW!");
 		}
-		return true;
 
+		glfwSetWindowUserPointer(m_Window, this);
+		glfwSetKeyCallback(m_Window, handle_key_event); 
+
+		return true;
 	}
 
 	void Window::Clear() const
@@ -62,5 +65,18 @@ namespace Nata
 		// stretch contents depending on window size
 		glViewport(0, 0, m_Width, m_Height);
 		glfwSwapBuffers(m_Window);
+	}
+
+	void handle_key_event(GLFWwindow* window, int key, int scancode, int action, int mods)
+	{
+		Window* win = (Window*)glfwGetWindowUserPointer(window);
+
+		Input::SetKeyState(key, action);
+	}
+
+	void handle_mouse_event(GLFWwindow* window, int button, int scancode, int action, int mods)
+	{
+		Window* win = (Window*)glfwGetWindowUserPointer(window);
+		Input::SetMouseState(button, action);
 	}
 }

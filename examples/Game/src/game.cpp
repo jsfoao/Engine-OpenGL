@@ -44,6 +44,8 @@ static unsigned int CreateShader(const std::string& vertexShader, const std::str
 
 class Game : public Nata::Application
 {
+    Input* input = nullptr;
+
 public:
 	Game()
 	{
@@ -57,13 +59,13 @@ public:
 
 	int Run()
 	{
-        Window window("Nata Engine", 600,600);
-        
-        while (!window.Closed())
-        {
-            LOGVEC(window.GetWidth(), window.GetHeight());
-            window.Clear();
+        Window* window = new Window("Nata Engine", 600,600);
 
+        while (!window->Closed())
+        {
+            window->Clear();
+
+            // simple rendering
             glBegin(GL_QUADS);
             glVertex2f(-0.5f, -0.5f);
             glVertex2f(-0.5f, 0.5f);
@@ -71,7 +73,12 @@ public:
             glVertex2f(0.5f, -0.5f);
             glEnd();
 
-            window.Update();
+            if (Input::GetKeyDown(GLFW_KEY_X))
+            {
+                LOG("X KEY DOWN");
+            }
+
+            window->Update();
         }
         return 0;
 	}

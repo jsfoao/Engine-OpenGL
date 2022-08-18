@@ -3,13 +3,6 @@
 
 namespace Nata
 {
-	const Matrix4 Matrix4::identity(
-		1.f, 0.f, 0.f, 0.f,
-		0.f, 1.f, 0.f, 0.f,
-		0.f, 0.f, 1.f, 0.f,
-		0.f, 0.f, 0.f, 1.f
-	);
-
 	Matrix4 Matrix4::Ortographic(float l, float r, float b, float t, float n, float f)
 	{
 		return Matrix4(
@@ -52,7 +45,7 @@ namespace Nata
 	}
 	Matrix4 Matrix4::Rotation(const float angle, const Vector3& axis)
 	{
-		float r = Math::ToRadians(angle);
+		float r = ToRadians(angle);
 		float c = cos(r);
 		float s = sin(r);
 

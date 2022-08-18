@@ -46,25 +46,22 @@ static unsigned int CreateShader(const std::string& vertexShader, const std::str
 class Game : public Nata::Application
 {
     Input* input = nullptr;
-    Vector2 vec;
 
 public:
-	Game()
-	{
-
-	}
-
-	~Game()
-	{
-
-	
-    }
+	Game() {}
+	~Game() {}
 
 	int Run()
 	{
         Window* win = new Window("Nata Engine", 600,600);
 
-        LOGVEC(vec.x, vec.y);
+        Matrix4 mat;
+        mat.m00 = 1.f;
+
+        Vector2 vec1 = Vector2::one;
+        Vector2 vec2 = 2.f * vec1;
+
+        LOGVEC(vec2.x, vec2.y);
 
         while (!win->Closed())
         {

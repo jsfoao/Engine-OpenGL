@@ -30,9 +30,6 @@
     <ClCompile Include="src\core\input.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\math\vector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\math\matrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

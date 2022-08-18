@@ -19,9 +19,10 @@ namespace Nata
 		Vector2 operator+() const { return Vector2(x, y); }
 		Vector2 operator-() const { return Vector2(-x, -y); }
 
+		friend Vector2 operator*(const Vector2& lhs, const float& rhs) { return Vector2(lhs.x * rhs, lhs.y * rhs); }
+		friend Vector2 operator*(const float& lhs, const Vector2& rhs) { return Vector2(rhs.x * lhs, rhs.y * lhs); }
 		Vector2 operator+(Vector2& r) const { return Vector2(x + r.x, y + r.y); }
 		Vector2 operator-(Vector2& r) const { return Vector2(x - r.x, y - r.y); }
-		Vector2 operator*(float v) const { return Vector2(x * v, y * v); }
 		Vector2 operator/(float v) const { return Vector2(x / v, y / v); }
 
 		Vector2 operator+=(const Vector2& r) { x += r.x; y += r.y; return *this; }
@@ -32,16 +33,17 @@ namespace Nata
 		float Magnitude() const { return sqrt(x * x + y * y); };
 		Vector2 Normalized() const { return Vector2(x / Magnitude(), y / Magnitude()); };
 		
+
 		static float Dot(const Vector2& v1, const Vector2& v2) { return (v1.x * v2.x) + (v1.y * v2.y); };
 	};
 
 	struct Vector3
 	{
-		static const Vector3 Zero;
-		static const Vector3 One;
-		static const Vector3 Right;
-		static const Vector3 Forward;
-		static const Vector3 Up;
+		static const Vector3 zero;
+		static const Vector3 one;
+		static const Vector3 right;
+		static const Vector3 forward;
+		static const Vector3 up;
 
 		float x, y, z;
 
@@ -54,7 +56,8 @@ namespace Nata
 			  
 		Vector3 operator+(Vector3& r) const { return Vector3(x + r.x, y + r.y, z + r.z); }
 		Vector3 operator-(Vector3& r) const { return Vector3(x - r.x, y - r.y, z + r.z); }
-		Vector3 operator*(float v) const { return Vector3(x * v, y * v, z * v); }
+		//friend Vector3 operator*(const Vector3& lhs, const float& rhs) { return Vector3(lhs.x * rhs, lhs.y * rhs); }
+		//friend Vector3 operator*(const float& lhs, const Vector2& rhs) { return Vector3(rhs.x * lhs, rhs.y * lhs); }
 		Vector3 operator/(float v) const { return Vector3(x / v, y / v, z / v); }
 			  
 		Vector3 operator+=(const Vector3& r) { x += r.x; y += r.y; z += r.z; return *this; }
@@ -65,10 +68,8 @@ namespace Nata
 
 	struct Vector4
 	{
-		static const Vector2 Zero;
-		static const Vector2 One;
-		static const Vector2 Right;
-		static const Vector2 Up;
+		static const Vector4 zero;
+		static const Vector4 one;
 
 		float x, y, z, w;
 
@@ -86,4 +87,18 @@ namespace Nata
 			  
 		Vector4& operator/=(float v) { x /= v; y /= v; z /= v; return *this; }
 	};
+
+	const inline Vector2 Vector2::zero(0.f, 0.f);
+	const inline Vector2 Vector2::one(1.f, 1.f);
+	const inline Vector2 Vector2::right(1.f, 0.f);
+	const inline Vector2 Vector2::up(0.f, 1.f);
+
+	const inline Vector3 Vector3::zero(0.f, 0.f, 0.f);
+	const inline Vector3 Vector3::one(1.f, 1.f, 1.f);
+	const inline Vector3 Vector3::right(1.f, 0.f, 0.f);
+	const inline Vector3 Vector3::forward(0.f, 1.f, 0.f);
+	const inline Vector3 Vector3::up(0.f, 1.f, 0.f);
+
+	const inline Vector4 Vector4::zero(0.f, 0.f, 0.f, 0.f);
+	const inline Vector4 Vector4::one(1.f, 1.f, 1.f, 1.f);
 }

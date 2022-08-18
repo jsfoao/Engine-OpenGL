@@ -31,7 +31,6 @@ namespace Nata
 			m20(v2.x), m21(v2.y), m22(v2.z), m23(0.f),
 			m30(v3.x), m31(v3.y), m32(v3.z), m33(1.f) {}
 		
-
 		Matrix4 Ortographic(float l, float r, float b, float t, float n, float f);
 		Matrix4 Perspective(float fov, float aspect, float n, float f);
 		Matrix4 Translation(const Vector3& t);
@@ -85,4 +84,11 @@ namespace Nata
 			return x + y + z + w;
 		}
 	};
+
+	const Matrix4 Matrix4::identity(
+		1.f, 0.f, 0.f, 0.f,
+		0.f, 1.f, 0.f, 0.f,
+		0.f, 0.f, 1.f, 0.f,
+		0.f, 0.f, 0.f, 1.f
+	);
 }

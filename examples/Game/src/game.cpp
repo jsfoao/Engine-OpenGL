@@ -1,4 +1,5 @@
 #include "nata.h"
+#include "math/math.h"
 using namespace Nata;
 
 static unsigned int CompileShader(unsigned int type, const std::string& source)
@@ -45,6 +46,7 @@ static unsigned int CreateShader(const std::string& vertexShader, const std::str
 class Game : public Nata::Application
 {
     Input* input = nullptr;
+    Vector2 vec;
 
 public:
 	Game()
@@ -55,15 +57,18 @@ public:
 	~Game()
 	{
 
-	}
+	
+    }
 
 	int Run()
 	{
-        Window* window = new Window("Nata Engine", 600,600);
+        Window* win = new Window("Nata Engine", 600,600);
 
-        while (!window->Closed())
+        LOGVEC(vec.x, vec.y);
+
+        while (!win->Closed())
         {
-            window->Clear();
+            win->Clear();
 
             // simple rendering
             glBegin(GL_QUADS);
@@ -73,12 +78,7 @@ public:
             glVertex2f(0.5f, -0.5f);
             glEnd();
 
-            if (Input::GetKeyDown(GLFW_KEY_X))
-            {
-                LOG("X KEY DOWN");
-            }
-
-            window->Update();
+            win->Update();
         }
         return 0;
 	}
@@ -89,3 +89,4 @@ Application* CreateApplication()
 	printf("Created application\n");
 	return new Game();
 }
+

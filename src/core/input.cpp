@@ -2,19 +2,21 @@
 
 namespace Nata
 {
-	bool Input::keys[GLFW_KEY_LAST];
-	bool Input::mouseBtns[MAX_MOUSE_BUTTONS];
-
 	Input::Input()
 	{
-		for (size_t i = 0; i < (int)Key::MAX; i++)
+		mx = 0;
+		my = 0;
+
+		for (size_t i = 0; i < GLFW_KEY_LAST; i++)
 		{
-			keys[i] = false;
+			keys[i].current = false;
+			keys[i].previous = false;
 		}
 
 		for (size_t i = 0; i < MAX_MOUSE_BUTTONS; i++)
 		{
-			mouseBtns[i] = false;
+			mouseBtns[i].current = false;
+			mouseBtns[i].previous = false;
 		}
 	}
 
@@ -22,30 +24,37 @@ namespace Nata
 	{
 	}
 
-	bool Input::GetKeyDown(int key)
+	bool Input::GetKeyDown(int code) const
 	{
-		if (key >= GLFW_KEY_LAST)
+		if (code >= GLFW_KEY_LAST)
 			return false;
 
-		return keys[key] == true;
+		return keys[code].current;
 	}
 
 
-	bool Input::GetMouseButtonDown(int button)
+	bool Input::GetMouseDown(int code) const
 	{
-		if (button >= MAX_MOUSE_BUTTONS)
+		if (code >= MAX_MOUSE_BUTTONS)
 			return false;
 		
-		return mouseBtns[button] == true;
+		return mouseBtns[code].current;
 	}
 
-	void Input::SetKeyState(int key, bool state)
+	void Input::SetKeyState(int code, bool state)
 	{
-		keys[key] = state;
+		keys[code].previous = keys[code].current;
+		keys[code].current = state;
 	}
 
-	void Input::SetMouseState(int mouseBtn, bool state)
+	void Input::SetMouseState(int code, bool state)
 	{
-		mouseBtns[mouseBtn] = state;
+		keys[code].previous = keys[code].current;
+		mouseBtns[code].current = state;
+	}
+	void Input::SetCursorPos(double x, double y)
+	{
+		mx = x;
+		my = y;
 	}
 }

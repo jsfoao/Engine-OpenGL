@@ -8,12 +8,20 @@
 namespace Nata
 {
 #define MAX_MOUSE_BUTTONS 32
+	
+	struct ActionState
+	{
+		bool current;
+		bool previous;
+	};
+
 	class NATA_API Input
 	{
 	public:
-		static bool keys[GLFW_KEY_LAST];
-		static bool mouseBtns[MAX_MOUSE_BUTTONS];
-		double mx, my;
+		ActionState keys[GLFW_KEY_LAST];
+		ActionState mouseBtns[MAX_MOUSE_BUTTONS];
+		double mx;
+		double my;
 
 	public:
 		Input();
@@ -21,13 +29,18 @@ namespace Nata
 		void Init();
 		void Clear();
 
-		static bool GetKeyDown(int key);
-		static bool GetKeyRelease(int key);
-		static bool GetKeyHold(int key);
+		bool GetKeyDown(int key) const;
+		bool GetKeyRelease(int key) const;
+		bool GetKeyHold(int key) const;
 
-		static bool GetMouseButtonDown(int button);
+		bool GetMouseDown(int button) const;
+		bool GetMouseRelease(int button) const;
+		bool GetMouseHold(int button) const;
 
-		static void SetKeyState(int key, bool state);
-		static void SetMouseState(int mouseBtn, bool state);
+		void SetKeyState(int key, bool state);
+		void SetMouseState(int mouseBtn, bool state);
+		void SetCursorPos(double x, double y);
 	};
+
+	extern Input* input;
 }

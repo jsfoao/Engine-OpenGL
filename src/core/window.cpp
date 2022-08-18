@@ -27,6 +27,13 @@ namespace Nata
 		}
 
 		m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, NULL, NULL);
+		m_Input = new Input();
+
+		if (!m_Input)
+		{
+			LOG("Failed to create input!");
+		}
+
 		if (!m_Window)
 		{
 			glfwTerminate();
@@ -41,7 +48,9 @@ namespace Nata
 		}
 
 		glfwSetWindowUserPointer(m_Window, this);
-		glfwSetKeyCallback(m_Window, handle_key_event); 
+		glfwSetKeyCallback(m_Window, key_callback); 
+		glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
+		glfwSetCursorPosCallback(m_Window, cursor_pos_callback);
 
 		return true;
 	}
@@ -67,16 +76,21 @@ namespace Nata
 		glfwSwapBuffers(m_Window);
 	}
 
-	void handle_key_event(GLFWwindow* window, int key, int scancode, int action, int mods)
+	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 		Window* win = (Window*)glfwGetWindowUserPointer(window);
-
-		Input::SetKeyState(key, action);
+		win->GetInput()->SetKeyState(key, action != GLFW_RELEASE);
 	}
 
-	void handle_mouse_event(GLFWwindow* window, int button, int scancode, int action, int mods)
+	void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 	{
 		Window* win = (Window*)glfwGetWindowUserPointer(window);
-		Input::SetMouseState(button, action);
+		win->GetInput()->SetMouseState(button, action != GLFW_RELEASE);
+	}
+
+	void cursor_pos_callback(GLFWwindow* window, double xpos, double ypos)
+	{
+		Window* win = (Window*)glfwGetWindowUserPointer(window);
+		win->GetInput()->SetCursorPos(xpos, ypos);
 	}
 }

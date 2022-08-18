@@ -7,6 +7,7 @@
 #include "core/window.h"
 #include "core/application.h"
 #include "core/core.h"
+#include "math/math.h"
 
 // entry point
 #include "core/entry_point.h"

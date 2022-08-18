@@ -13,6 +13,7 @@ namespace Nata
 		const char* m_Title;
 		int m_Width, m_Height;
 		GLFWwindow* m_Window;
+		Input* m_Input;
 		bool m_Closed;
 
 	public:
@@ -25,9 +26,13 @@ namespace Nata
 		inline int GetWidth() const { return m_Width;  }
 		inline int GetHeight() const { return m_Height;  }
 		inline GLFWwindow* GetWindow() const { return m_Window; }
+		inline Input* GetInput() const { return m_Input; }
+
 	private:
 		bool Init();
 	};
 
-	static void handle_key_event(GLFWwindow* window, int key, int scancode, int action, int mods);
+	static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+	static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+	static void cursor_pos_callback(GLFWwindow* window, double xpos, double ypos);
 }

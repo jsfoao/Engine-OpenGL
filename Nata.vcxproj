@@ -55,7 +55,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;_DEBUG;_CONSOLE;NT_PLATFORM_WINDOWS;NT_BUILD_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_BUILD;_DEBUG;_CONSOLE;NT_PLATFORM_WINDOWS;NT_BUILD_DLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -96,8 +96,10 @@
     <ClCompile Include="src\core\engine.cpp" />
     <ClCompile Include="src\core\input.cpp" />
     <ClCompile Include="src\core\window.cpp" />
+    <ClCompile Include="src\graphics\shader.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\math\matrix.cpp" />
+    <ClCompile Include="src\math\vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\GLFW\glfw3.h" />
@@ -113,11 +115,13 @@
     <ClInclude Include="src\core\input.h" />
     <ClInclude Include="src\core\key.h" />
     <ClInclude Include="src\core\window.h" />
+    <ClInclude Include="src\graphics\shader.h" />
     <ClInclude Include="src\math\math.h" />
     <ClInclude Include="src\math\mathf.h" />
     <ClInclude Include="src\math\matrix.h" />
     <ClInclude Include="src\math\vector.h" />
     <ClInclude Include="src\nata.h" />
+    <ClInclude Include="src\utils\fileutils.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\glew32.lib" />

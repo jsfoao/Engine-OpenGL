@@ -2,10 +2,11 @@
 #include "core/core.h"
 #include "mathf.h"
 #include "vector.h"
+#include <iostream>
 
 namespace Nata
 {
-	NATA_API struct Matrix4
+	struct NATA_API Matrix4
 	{
 		static const Matrix4 identity;
 
@@ -14,7 +15,7 @@ namespace Nata
 		float m20, m21, m22, m23;
 		float m30, m31, m32, m33;
 
-		Matrix4() {};
+		Matrix4();
 		Matrix4(
 			float m00, float m01, float m02, float m03,
 			float m10, float m11, float m12, float m13,
@@ -31,11 +32,13 @@ namespace Nata
 			m20(v2.x), m21(v2.y), m22(v2.z), m23(0.f),
 			m30(v3.x), m31(v3.y), m32(v3.z), m33(1.f) {}
 		
-		Matrix4 Ortographic(float l, float r, float b, float t, float n, float f);
-		Matrix4 Perspective(float fov, float aspect, float n, float f);
-		Matrix4 Translation(const Vector3& t);
-		Matrix4 Scale(const Vector3& s);
-		Matrix4 Rotation(const float angle, const Vector3& axis);
+		Matrix4 Ortographic(float l, float r, float b, float t, float n, float f) const;
+		Matrix4 Perspective(float fov, float aspect, float n, float f) const;
+		Matrix4 Translation(const Vector3& t) const;
+		Matrix4 Scale(const Vector3& s) const;
+		Matrix4 Rotation(float angle, const Vector3& axis) const;
+		Vector4 GetColumn(const unsigned int column);
+		Vector4 GetRow(const unsigned int row);
 
 		Matrix4 operator*(const Matrix4& r) const
 		{
@@ -84,11 +87,4 @@ namespace Nata
 			return x + y + z + w;
 		}
 	};
-
-	const Matrix4 Matrix4::identity(
-		1.f, 0.f, 0.f, 0.f,
-		0.f, 1.f, 0.f, 0.f,
-		0.f, 0.f, 1.f, 0.f,
-		0.f, 0.f, 0.f, 1.f
-	);
 }

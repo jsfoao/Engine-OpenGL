@@ -1,9 +1,10 @@
 #pragma once
 #include <cmath>
 #include "core/core.h"
+
 namespace Nata
 {
-	NATA_API struct Vector2
+	struct NATA_API Vector2
 	{
 		static const Vector2 zero;
 		static const Vector2 one;
@@ -88,17 +89,5 @@ namespace Nata
 		Vector4& operator/=(float v) { x /= v; y /= v; z /= v; return *this; }
 	};
 
-	const inline Vector2 Vector2::zero(0.f, 0.f);
-	const inline Vector2 Vector2::one(1.f, 1.f);
-	const inline Vector2 Vector2::right(1.f, 0.f);
-	const inline Vector2 Vector2::up(0.f, 1.f);
 
-	const inline Vector3 Vector3::zero(0.f, 0.f, 0.f);
-	const inline Vector3 Vector3::one(1.f, 1.f, 1.f);
-	const inline Vector3 Vector3::right(1.f, 0.f, 0.f);
-	const inline Vector3 Vector3::forward(0.f, 1.f, 0.f);
-	const inline Vector3 Vector3::up(0.f, 1.f, 0.f);
-
-	const inline Vector4 Vector4::zero(0.f, 0.f, 0.f, 0.f);
-	const inline Vector4 Vector4::one(1.f, 1.f, 1.f, 1.f);
 }

@@ -8,6 +8,7 @@
 #include "core/application.h"
 #include "core/core.h"
 #include "math/math.h"
+#include "graphics/shader.h"
 
 // entry point
 #include "core/entry_point.h"

@@ -20,6 +20,7 @@ namespace Nata
 
 	bool Window::Init()
 	{
+		// GL Init ----------------------------------------------------------//
 		if (!glfwInit())
 		{
 			LOG("Failed to initialize GLFW!")
@@ -27,12 +28,6 @@ namespace Nata
 		}
 
 		m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, NULL, NULL);
-		m_Input = new Input();
-
-		if (!m_Input)
-		{
-			LOG("Failed to create input!");
-		}
 
 		if (!m_Window)
 		{
@@ -42,15 +37,20 @@ namespace Nata
 		}
 		glfwMakeContextCurrent(m_Window);
 
-		if (glewInit() != GLEW_OK)
-		{
-			LOG("Could not initialize GLEW!");
-		}
+		// TODO: glewinit
 
 		glfwSetWindowUserPointer(m_Window, this);
 		glfwSetKeyCallback(m_Window, key_callback); 
 		glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
 		glfwSetCursorPosCallback(m_Window, cursor_pos_callback);
+		// -------------------------------------------------------------------//
+
+		m_Input = new Input();
+
+		if (!m_Input)
+		{
+			LOG("Failed to create input!");
+		}
 
 		return true;
 	}

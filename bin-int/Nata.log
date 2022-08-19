@@ -1,4 +1,2 @@
-﻿  matrix.cpp
-C:\Dev\Nata\src\math\vector.h(53,3): warning C4091: '__declspec(dllexport)': ignored on left of 'Nata::Vector2' when no variable is declared
-C:\Dev\Nata\src\math\matrix.h(86,3): warning C4091: '__declspec(dllexport)': ignored on left of 'Nata::Matrix4' when no variable is declared
+﻿  window.cpp
   Nata.vcxproj -> C:\Dev\Nata\bin\Nata.dll

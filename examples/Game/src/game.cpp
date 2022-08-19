@@ -1,5 +1,6 @@
 #include "nata.h"
 #include "math/math.h"
+
 using namespace Nata;
 
 static unsigned int CompileShader(unsigned int type, const std::string& source)
@@ -53,27 +54,36 @@ public:
 
 	int Run()
 	{
-        Window* win = new Window("Nata Engine", 600,600);
+        Window* win = new Window("Nata Engine", 600, 600);
+        glewInit();
 
-        Matrix4 mat;
-        mat.m00 = 1.f;
+        float vertices[] =
+        {
+            -0.5f, -0.5f, 0.0f,
+            -0.5f,  0.5f, 0.0f,
+             0.5f,  0.5f, 0.0f,
+             0.5f, -0.5f, 0.0f,
+             0.5f, -0.5f, 0.0f,
+            -0.5f, -0.5f, 0.0f
+        };
 
-        Vector2 vec1 = Vector2::one;
-        Vector2 vec2 = 2.f * vec1;
+        // Initalize GL
+        unsigned int vbo;
+        glGenBuffers(1, &vbo);
+        glBindBuffer(GL_ARRAY_BUFFER, vbo);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+        glEnableVertexAttribArray(0);
+        //
 
-        LOGVEC(vec2.x, vec2.y);
+        Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+        shader.Enable();
 
         while (!win->Closed())
         {
             win->Clear();
 
-            // simple rendering
-            glBegin(GL_QUADS);
-            glVertex2f(-0.5f, -0.5f);
-            glVertex2f(-0.5f, 0.5f);
-            glVertex2f(0.5f, 0.5f);
-            glVertex2f(0.5f, -0.5f);
-            glEnd();
+            glDrawArrays(GL_TRIANGLES, 0, 6);
 
             win->Update();
         }

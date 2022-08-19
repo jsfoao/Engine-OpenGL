@@ -28,7 +28,7 @@ namespace Nata
 		inline GLFWwindow* GetWindow() const { return m_Window; }
 		inline Input* GetInput() const { return m_Input; }
 
-	private:
+	public:
 		bool Init();
 	};
 

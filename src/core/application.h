@@ -3,7 +3,7 @@
 
 namespace Nata 
 {
-	class NATA_API Application
+	class Application
 	{
 	public:
 		Application();

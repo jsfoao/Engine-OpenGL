@@ -8,9 +8,13 @@ namespace Nata
 		m_Title = title;
 		m_Width = width;
 		m_Height = height;
+		failed = false;
 
 		if (!Init())
+		{
+			failed = true;
 			glfwTerminate();
+		}
 	}
 
 	Window::~Window()
@@ -20,10 +24,9 @@ namespace Nata
 
 	bool Window::Init()
 	{
-		// GL Init ----------------------------------------------------------//
 		if (!glfwInit())
 		{
-			LOG("Failed to initialize GLFW!")
+			LOG("Failed to initialize GLFW!");
 			return false;
 		}
 
@@ -38,12 +41,16 @@ namespace Nata
 		glfwMakeContextCurrent(m_Window);
 
 		// TODO: glewinit
+		if (!glewInit())
+		{
+			LOG("Failed to initialize GLEW!");
+			return false;
+		}
 
 		glfwSetWindowUserPointer(m_Window, this);
 		glfwSetKeyCallback(m_Window, key_callback); 
 		glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
 		glfwSetCursorPosCallback(m_Window, cursor_pos_callback);
-		// -------------------------------------------------------------------//
 
 		m_Input = new Input();
 

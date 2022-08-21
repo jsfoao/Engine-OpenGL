@@ -21,8 +21,8 @@ namespace Nata
 		unsigned int vertex = glCreateShader(GL_VERTEX_SHADER);
 		unsigned int fragment = glCreateShader(GL_FRAGMENT_SHADER);
 
-		std::string tempVertSource = ReadFile(m_VertPath);
-		std::string tempFragSource = ReadFile(m_FragPath);
+		std::string tempVertSource = FileUtils::ReadFile(m_VertPath);
+		std::string tempFragSource = FileUtils::ReadFile(m_FragPath);
 
 		const char* vertSource = tempVertSource.c_str();
 		const char* fragSource = tempFragSource.c_str();

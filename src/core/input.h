@@ -15,7 +15,7 @@ namespace Nata
 		bool previous;
 	};
 
-	class NATA_API Input
+	class Input
 	{
 	public:
 		ActionState keys[GLFW_KEY_LAST];

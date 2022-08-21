@@ -12,7 +12,7 @@ namespace Nata
 
 	Matrix4::Matrix4() {};
 
-	NATA_API Matrix4 Matrix4::Ortographic(float l, float r, float b, float t, float n, float f) const
+	Matrix4 Matrix4::Ortographic(float l, float r, float b, float t, float n, float f) const
 	{
 		return Matrix4(
 			2 / (r - l), 0.f, 0.f, -(r + l) / (r - l),
@@ -22,7 +22,7 @@ namespace Nata
 		);
 	}
 
-	NATA_API Matrix4 Matrix4::Perspective(float fov, float aspect, float n, float f) const
+	Matrix4 Matrix4::Perspective(float fov, float aspect, float n, float f) const
 	{
 		// TODO: Maybe to radians?
 		return Matrix4(
@@ -33,7 +33,7 @@ namespace Nata
 		);
 	}
 
-	NATA_API Matrix4 Matrix4::Translation(const Vector3& t) const
+	Matrix4 Matrix4::Translation(const Vector3& t) const
 	{
 		return Matrix4(
 			1.f, 0.f, 0.f, t.x,
@@ -43,7 +43,7 @@ namespace Nata
 		);
 	}
 
-	NATA_API Matrix4 Matrix4::Scale(const Vector3& s) const
+	Matrix4 Matrix4::Scale(const Vector3& s) const
 	{
 		return Matrix4(
 			s.x, 0.f, 0.f, 0.f,
@@ -52,7 +52,7 @@ namespace Nata
 			0.f, 0.f, 0.f, 1.f
 		);
 	}
-	NATA_API Matrix4 Matrix4::Rotation(const float angle, const Vector3& axis) const
+	Matrix4 Matrix4::Rotation(const float angle, const Vector3& axis) const
 	{
 		float r = ToRadians(angle);
 		float c = cos(r);
@@ -72,7 +72,7 @@ namespace Nata
 		);
 	}
 
-	NATA_API Vector4 Matrix4::GetColumn(const unsigned int column)
+	Vector4 Matrix4::GetColumn(const unsigned int column)
 	{
 		if (column > 3)
 			return Vector4::zero;
@@ -87,7 +87,7 @@ namespace Nata
 			);
 	}
 
-	NATA_API Vector4 Matrix4::GetRow(const unsigned int row)
+	Vector4 Matrix4::GetRow(const unsigned int row)
 	{
 		if (row > 3)
 			return Vector4::zero;

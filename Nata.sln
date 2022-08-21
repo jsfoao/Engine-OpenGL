@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Game", "examples\Game\Game.vcxproj", "{695C5D5F-C461-46AD-854C-A8819B1AFEF2}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Nata", "Nata.vcxproj", "{263DABBC-D25B-4A6B-8E65-07C4EDE3EE61}"
 EndProject
 Global
@@ -17,10 +15,6 @@ Global
 		{263DABBC-D25B-4A6B-8E65-07C4EDE3EE61}.Debug|x64.Build.0 = Debug|x64
 		{263DABBC-D25B-4A6B-8E65-07C4EDE3EE61}.Release|x64.ActiveCfg = Release|x64
 		{263DABBC-D25B-4A6B-8E65-07C4EDE3EE61}.Release|x64.Build.0 = Release|x64
-		{695C5D5F-C461-46AD-854C-A8819B1AFEF2}.Debug|x64.ActiveCfg = Debug|x64
-		{695C5D5F-C461-46AD-854C-A8819B1AFEF2}.Debug|x64.Build.0 = Debug|x64
-		{695C5D5F-C461-46AD-854C-A8819B1AFEF2}.Release|x64.ActiveCfg = Release|x64
-		{695C5D5F-C461-46AD-854C-A8819B1AFEF2}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

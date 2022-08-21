@@ -6,7 +6,7 @@
 
 namespace Nata
 {
-	struct NATA_API Matrix4
+	struct Matrix4
 	{
 		static const Matrix4 identity;
 

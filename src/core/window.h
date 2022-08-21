@@ -7,8 +7,10 @@
 
 namespace Nata
 {
-	class NATA_API Window
+	class Window
 	{
+	public:
+		bool failed;
 	private:
 		const char* m_Title;
 		int m_Width, m_Height;

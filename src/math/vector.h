@@ -4,7 +4,7 @@
 
 namespace Nata
 {
-	struct NATA_API Vector2
+	struct Vector2
 	{
 		static const Vector2 zero;
 		static const Vector2 one;

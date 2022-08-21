@@ -6,3 +6,4 @@
 #include "core/window.h"
 #include "core/application.h"
 #include "math/math.h"
+#include "graphics/shader.h"

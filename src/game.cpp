@@ -38,8 +38,8 @@ public:
         glEnableVertexAttribArray(0);
         //
 
-        //Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
-        //shader.Enable();
+        Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+        shader.Enable();
 
         while (!win->Closed())
         {

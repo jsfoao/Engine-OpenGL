@@ -1,6 +1,5 @@
 #include "window.h"
 
-
 namespace Nata
 {
 	Window::Window(const char* title, int width, int height)
@@ -40,7 +39,6 @@ namespace Nata
 		}
 		glfwMakeContextCurrent(m_Window);
 
-		// TODO: glewinit
 		if (!glewInit())
 		{
 			LOG("Failed to initialize GLEW!");

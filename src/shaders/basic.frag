@@ -17,5 +17,6 @@ void main()
 {
 	float intensity = 1.0 / length(fs_in.pos.xy - light_pos);
 	// color = col ;
-	color = fs_in.color * intensity;
+	// color = fs_in.color * intensity;
+	color = fs_in.color;
 }

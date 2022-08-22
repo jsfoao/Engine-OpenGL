@@ -59,6 +59,8 @@ namespace Nata
 		inline const Vector2 GetSize() const { return m_Size; }
 		inline const Vector4 GetColor() const { return m_Color; }
 
+		void SetPosition(Vector3 position) { m_Position = position; }
+
 		inline const VertexArray* GetVertexArray() const { return m_VertexArray; }
 		inline const IndexBuffer* GetIndexBuffer() const { return m_IndexBuffer; }
 

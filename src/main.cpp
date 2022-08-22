@@ -31,9 +31,9 @@ int main(int argc, char** argv)
         win->Clear();
 
         Vector2 mousePos = win->GetInput()->GetMousePos();
-        LOGVEC(mousePos.x, mousePos.y);
-        shader.SetUniform2f("light_pos", Vector2((mousePos.x * 16.f) / 960.f, (9.f - mousePos.y * 9.f / 540.f)));
+        //shader.SetUniform2f("light_pos", Vector2((mousePos.x * 16.f) / 960.f, (9.f - mousePos.y * 9.f / 540.f)));
         
+        sprite.SetPosition(Vector3((mousePos.x * 16.f) / 960.f, (9.f - mousePos.y * 9.f / 540.f), 0.f));
         renderer.Submit(&sprite);
         renderer.Submit(&sprite2);
 

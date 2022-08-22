@@ -15,6 +15,41 @@ namespace Nata
 		glDeleteProgram(m_ShaderID);
 	}
 
+	unsigned int Shader::GetUniformLocation(const char* name)
+	{
+		return glGetUniformLocation(m_ShaderID, name);
+	}
+
+	void Shader::SetUniform1f(const char* name, float value)
+	{
+		glUniform1f(GetUniformLocation(name), value);
+	}
+
+	void Shader::SetUniform1i(const char* name, int value)
+	{
+		glUniform1f(GetUniformLocation(name), value);
+	}
+
+	void Shader::SetUniform2f(const char* name, const Vector2& vector)
+	{
+		glUniform2f(GetUniformLocation(name), vector.x, vector.y);
+	}
+
+	void Shader::SetUniform3f(const char* name, const Vector3& vector)
+	{
+		glUniform3f(GetUniformLocation(name), vector.x, vector.y, vector.z);
+	}
+
+	void Shader::SetUniform4f(const char* name, const Vector4& vector)
+	{
+		glUniform4f(GetUniformLocation(name), vector.x, vector.y, vector.z, vector.w);
+	}
+
+	void Shader::SetUniformMat4(const char* name, const Matrix4& matrix)
+	{
+		glUniformMatrix4fv(GetUniformLocation(name), 1, GL_FALSE, matrix.elements);
+	}
+
 	unsigned int Shader::Load()
 	{
 		unsigned int program = glCreateProgram();
@@ -70,6 +105,8 @@ namespace Nata
 
 		glDeleteShader(vertex);
 		glDeleteShader(fragment);
+
+		return program;
 	}
 
 	void Shader::Enable() const

@@ -7,13 +7,12 @@ namespace Nata
 		m_Title = title;
 		m_Width = width;
 		m_Height = height;
-		failed = false;
 
 		if (!Init())
 		{
-			failed = true;
 			glfwTerminate();
 		}
+		LOG("Start Window");
 	}
 
 	Window::~Window()
@@ -28,6 +27,7 @@ namespace Nata
 			LOG("Failed to initialize GLFW!");
 			return false;
 		}
+		LOG(glfwGetVersionString());
 
 		m_Window = glfwCreateWindow(m_Width, m_Height, m_Title, NULL, NULL);
 
@@ -39,7 +39,7 @@ namespace Nata
 		}
 		glfwMakeContextCurrent(m_Window);
 
-		if (!glewInit())
+		if (glewInit() != GLEW_OK)
 		{
 			LOG("Failed to initialize GLEW!");
 			return false;
@@ -71,6 +71,12 @@ namespace Nata
 	}
 	void Window::Update()
 	{
+		GLenum error = glGetError();
+		if (error != GL_NO_ERROR)
+		{
+			std::cout << "OpenGL error: " << error << std::endl;
+		}
+
 		glfwPollEvents();
 
 		// changed window size

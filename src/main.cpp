@@ -1,43 +1,43 @@
 #pragma once
 #include "nata.h"
+#include "math/math.h"
+
+#include "graphics/buffer.h"
+#include "graphics/index_buffer.h"
+#include "graphics/vertex_array.h"
+
+#include "graphics/renderer2d.h"
+#include "graphics/simple_2drenderer.h"
+
 using namespace Nata;
 
 int main(int argc, char** argv)
 {
-    LOG("Run");
-    Window* win = new Window("Nata Engine", 600, 600);
+    LOG("Start Application");
+    Window* win = new Window("Nata Engine", 960, 540);
 
-    if (win->failed)
-        return 0;
+    Simple2DRenderer renderer;
 
-    float vertices[] =
-    {
-        -0.5f, -0.5f, 0.0f,
-        -0.5f,  0.5f, 0.0f,
-         0.5f,  0.5f, 0.0f,
-         0.5f, -0.5f, 0.0f,
-         0.5f, -0.5f, 0.0f,
-        -0.5f, -0.5f, 0.0f
-    };
+    Matrix4 ortho = Matrix4::Ortographic(0.0f, 16.f, 0.0f, 9.0f, -1.0f, 1.0f);
+    Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
+    shader.Enable();
+    shader.SetUniformMat4("pr_matrix", ortho);
 
-    // Initalize GL
-    unsigned int vbo;
-    glGenBuffers(1, &vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-    glEnableVertexAttribArray(0);
-    //
-
-    //Shader shader("src/shaders/basic.vert", "src/shaders/basic.frag");
-    //shader.Enable();
+    Renderable2D sprite(Vector3(5, 5, 0), Vector2(4, 4), Vector4(1, 0, 0, 1), &shader);
+    Renderable2D sprite2(Vector3(5, 5, 0), Vector2(2, 3), Vector4(0, 1, 0, 1), &shader);
 
     while (!win->Closed())
     {
         win->Clear();
 
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+        Vector2 mousePos = win->GetInput()->GetMousePos();
+        LOGVEC(mousePos.x, mousePos.y);
+        shader.SetUniform2f("light_pos", Vector2((mousePos.x * 16.f) / 960.f, (9.f - mousePos.y * 9.f / 540.f)));
+        
+        renderer.Submit(&sprite);
+        renderer.Submit(&sprite2);
 
+        renderer.Flush();
         win->Update();
     }
     return 0;

@@ -1,16 +1,14 @@
 #pragma once
+#include "GL/glew.h"
+#include "GLFW/glfw3.h"
 #include <iostream>
 #include "core.h"
 #include "core/input.h"
-#include "GL/glew.h"
-#include "GLFW/glfw3.h"
 
 namespace Nata
 {
 	class Window
 	{
-	public:
-		bool failed;
 	private:
 		const char* m_Title;
 		int m_Width, m_Height;

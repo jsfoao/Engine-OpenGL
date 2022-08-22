@@ -4,6 +4,7 @@
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 #include "key.h"
+#include "math/vector.h"
 
 namespace Nata
 {
@@ -40,6 +41,8 @@ namespace Nata
 		void SetKeyState(int key, bool state);
 		void SetMouseState(int mouseBtn, bool state);
 		void SetCursorPos(double x, double y);
+
+		Vector2 GetMousePos() { return Vector2(mx, my); }
 	};
 
 	extern Input* input;

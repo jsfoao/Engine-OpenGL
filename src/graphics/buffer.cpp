@@ -10,6 +10,11 @@ namespace Nata
 		Unbind();
 	}
 
+	Buffer::~Buffer()
+	{
+		glDeleteBuffers(1, &m_BufferID);
+	}
+
 	void Buffer::Bind() const
 	{
 		glBindBuffer(GL_ARRAY_BUFFER, m_BufferID);

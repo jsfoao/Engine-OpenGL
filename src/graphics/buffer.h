@@ -11,6 +11,7 @@ namespace Nata
 
 	public:
 		Buffer(float* data, int count, int componentCount);
+		~Buffer();
 
 		void Bind() const;
 		void Unbind() const;

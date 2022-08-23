@@ -11,6 +11,7 @@ namespace Nata
 
 	public:
 		IndexBuffer(unsigned short* data, int count);
+		~IndexBuffer();
 
 		void Bind() const;
 		void Unbind() const;

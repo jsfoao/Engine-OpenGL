@@ -7,6 +7,13 @@
 
 namespace Nata
 {
+	// Data per vertex
+	struct VertexData
+	{
+		Vector3 vertex;
+		Vector4 color;
+	};
+
 	class Renderable2D
 	{
 	protected:

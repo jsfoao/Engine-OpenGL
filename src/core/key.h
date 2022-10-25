@@ -1,7 +1,7 @@
 #pragma once
 namespace Nata
 {
-	enum class Key
+	enum class KeyCode
 	{
 		Escape = 0x1,
 		Num1,

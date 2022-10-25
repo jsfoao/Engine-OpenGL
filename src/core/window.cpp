@@ -45,7 +45,10 @@ namespace Nata
 			return false;
 		}
 
+		glViewport(0, 0, m_Width, m_Height);
 		glfwSetWindowUserPointer(m_Window, this);
+
+		// Callbacks
 		glfwSetKeyCallback(m_Window, key_callback); 
 		glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
 		glfwSetCursorPosCallback(m_Window, cursor_pos_callback);
@@ -69,6 +72,7 @@ namespace Nata
 	{
 		return glfwWindowShouldClose(m_Window);
 	}
+
 	void Window::Update()
 	{
 		GLenum error = glGetError();
@@ -77,14 +81,18 @@ namespace Nata
 			std::cout << "OpenGL error: " << error << std::endl;
 		}
 
+		// Checks if any events are triggered (keyboard input or mouse inpit)
 		glfwPollEvents();
-
-		// changed window size
 		glfwGetFramebufferSize(m_Window, &m_Width, &m_Height);
-
-		// stretch contents depending on window size
-		glViewport(0, 0, m_Width, m_Height);
 		glfwSwapBuffers(m_Window);
+	}
+
+	//
+	// CALLBACKS
+	//
+	void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+	{
+		glViewport(0, 0, width, height);
 	}
 
 	void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)

@@ -53,16 +53,12 @@ namespace Nata
 	unsigned int Shader::Load()
 	{
 		unsigned int program = glCreateProgram();
-		unsigned int vertex = glCreateShader(GL_VERTEX_SHADER);
-		unsigned int fragment = glCreateShader(GL_FRAGMENT_SHADER);
-
-		std::string tempVertSource = FileUtils::ReadFile(m_VertPath);
-		std::string tempFragSource = FileUtils::ReadFile(m_FragPath);
-
-		const char* vertSource = tempVertSource.c_str();
-		const char* fragSource = tempFragSource.c_str();
 
 		// VERTEX
+		unsigned int vertex = glCreateShader(GL_VERTEX_SHADER);
+		std::string tempVertSource = FileUtils::ReadFile(m_VertPath);
+		const char* vertSource = tempVertSource.c_str();
+
 		glShaderSource(vertex, 1, &vertSource, NULL);
 		glCompileShader(vertex);
 
@@ -81,6 +77,10 @@ namespace Nata
 		}
 
 		// FRAGMENT
+		unsigned int fragment = glCreateShader(GL_FRAGMENT_SHADER);
+		std::string tempFragSource = FileUtils::ReadFile(m_FragPath);
+		const char* fragSource = tempFragSource.c_str();
+
 		glShaderSource(fragment, 1, &fragSource, NULL);
 		glCompileShader(fragment);
 

@@ -122,6 +122,7 @@
     <ClInclude Include="src\core\input.h" />
     <ClInclude Include="src\core\key.h" />
     <ClInclude Include="src\core\window.h" />
+    <ClInclude Include="src\exercises\exercises.hpp" />
     <ClInclude Include="src\graphics\batch_2drenderer.h" />
     <ClInclude Include="src\graphics\buffer.h" />
     <ClInclude Include="src\graphics\index_buffer.h" />
@@ -163,6 +164,9 @@
     <None Include="bin\zlib1.dll" />
     <None Include="src\shaders\basic.frag" />
     <None Include="src\shaders\basic.vert" />
+    <None Include="src\shaders\test.frag" />
+    <None Include="src\shaders\test.vert" />
+    <None Include="src\shaders\test2.frag" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

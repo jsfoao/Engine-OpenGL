@@ -31,12 +31,12 @@ namespace Nata
 		void Clear();
 
 		bool GetKeyDown(int key) const;
-		bool GetKeyRelease(int key) const;
-		bool GetKeyHold(int key) const;
+		//bool GetKeyRelease(int key) const;
+		//bool GetKeyHold(int key) const;
 
 		bool GetMouseDown(int button) const;
-		bool GetMouseRelease(int button) const;
-		bool GetMouseHold(int button) const;
+		//bool GetMouseRelease(int button) const;
+		//bool GetMouseHold(int button) const;
 
 		void SetKeyState(int key, bool state);
 		void SetMouseState(int mouseBtn, bool state);

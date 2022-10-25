@@ -149,6 +149,9 @@
     <ClInclude Include="src\graphics\static_sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\exercises\exercises.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\glew32.lib" />
@@ -174,5 +177,8 @@
     <None Include="bin\zlib1.dll" />
     <None Include="src\shaders\basic.frag" />
     <None Include="src\shaders\basic.vert" />
+    <None Include="src\shaders\test.vert" />
+    <None Include="src\shaders\test.frag" />
+    <None Include="src\shaders\test2.frag" />
   </ItemGroup>
 </Project>
